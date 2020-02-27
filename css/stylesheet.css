@@ -1,0 +1,166 @@
+*{
+  box-sizing: border-box;
+  outline: none;
+  font-family: Arial;
+  margin-right: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+html{
+  background-image: linear-gradient(black,purple,#191970,black);
+}
+body{
+  font-family: Arial,Serif,Sans-serif;
+}
+h1{
+  color: White;
+  font-size: 3em;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0px 5px 1px #43434D;
+  margin-top: 1em;
+  animation-name: slidein;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+}
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+#slideshow-container{
+  margin: 4em auto;
+  text-align: center;
+  width: 80%;
+  max-width: 1000px;
+  overflow: hidden;
+  display: block;
+  border-radius: 10px;
+}
+#slideshow1,#slideshow2,#slideshow3{
+  width: 1000%;
+  position: relative;
+  height: 800px
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  text-align: left;
+  animation: 40s slidy infinite;
+  overflow: hidden;
+  display: inline-block;
+  border-radius: 10px;
+}
+#slideshow4,#slideshow5{
+  width: 1000%;
+  position: relative;
+  max-height: 2000px;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  text-align: left;
+  animation: 50s slidy infinite;
+  overflow: hidden;
+  display: inline-block;
+  border-radius: 10px !important;
+}
+.slideshow-image{
+  width: 10%;
+  height: 10%;
+  border-radius: 10px;
+  overflow: hidden;
+  float: left;
+
+}
+/*img{
+  max-height: 400px !important;
+}*/
+
+@keyframes slidy {
+  0% {
+    left: 0%;
+  }
+  10% {
+    left: 0%;
+  }
+  11.1% {
+    left: -100%;
+  }
+  21.1% {
+    left: -100%;
+  }
+  22.2% {
+    left: -200%;
+  }
+  32.2% {
+    left: -200%;
+  }
+  33.3% {
+    left: -300%;
+  }
+  43.3% {
+    left: -300%;
+  }
+  44.4%{
+    left: -400%;
+  }
+  54.4% {
+    left: -400%;
+  }
+  55.5% {
+    left: -500%;
+  }
+  65.5% {
+    left: -500%;
+  }
+  66.6% {
+    left: -600%;
+  }
+  76.6% {
+    left: -600%;
+  }
+  77.7% {
+    left: -700%;
+  }
+  87.7% {
+    left: -700%;
+  }
+  88.8%{
+    left: -800%;
+  }
+  98.8%{
+    left: -800%;
+  }
+  100%{
+    left: -900%;
+  }
+}
+
+/*@media screen and (max-width: 480px) {
+
+		html, body {
+			min-width: 320px;
+		}
+
+	}*/
+
+/*@media screen and (max-width: 736px){
+  #slideshow{
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}*/
