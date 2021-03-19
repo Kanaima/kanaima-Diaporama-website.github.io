@@ -1,166 +1,101 @@
 *{
-  box-sizing: border-box;
-  outline: none;
-  font-family: Arial;
-  margin-right: 0;
+  margin: 0;
   padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
+  font-family: sans-serif;
 }
 html{
-  background-image: linear-gradient(black,purple,#191970,black);
 }
-body{
-  font-family: Arial,Serif,Sans-serif;
-}
-h1{
-  color: White;
-  font-size: 3em;
-  font-weight: bold;
-  text-align: center;
-  text-transform: uppercase;
-  text-shadow: 0px 5px 1px #43434D;
-  margin-top: 1em;
-  animation-name: slidein;
-  animation-duration: 3s;
-  animation-iteration-count: 1;
-  animation-direction: alternate;
-}
-@keyframes slidein {
-  from {
-    margin-left: 100%;
-    width: 300%;
-  }
-  to {
-    margin-left: 0%;
-    width: 100%;
-  }
-}
-#slideshow-container{
-  margin: 4em auto;
-  text-align: center;
-  width: 80%;
-  max-width: 1000px;
-  overflow: hidden;
-  display: block;
-  border-radius: 10px;
-}
-#slideshow1,#slideshow2,#slideshow3{
-  width: 1000%;
+#backgroundImg{
+  width: 100%;
+  height: 100vh;
+  background-image: url("../images/001.jpg");
+  background-size: cover;
+  background-position: center;
   position: relative;
-  height: 800px
-  top: 0;
-  left: 0;
-  margin: 0;
-  padding: 0;
-  font-size: 0;
-  text-align: left;
-  animation: 40s slidy infinite;
-  overflow: hidden;
-  display: inline-block;
-  border-radius: 10px;
 }
-#slideshow4,#slideshow5{
-  width: 1000%;
+.navbar{
+  width: 100%;
+  background: rgba(00, 50, 70, 0.5);
+}
+.navbar .logo{
+  width: 40px;
+  height: auto;
+  cursor: pointer;
+}
+.btn-darkteal{
+  font-weight: bolder;
+  color: white;
+  background-color: #005070;
+  border: solid thick white;
+  border-radius: 2em;
+}
+.btn-darkteal:hover{
+  font-weight: bolder;
+  color: #005070;
+  background-color: white;
+  border: solid thick #005070;
+  border-radius: 2em;
+}
+.container-transparent{
+  width: 100%;
+  height: auto;
   position: relative;
-  max-height: 2000px;
-  top: 0;
-  left: 0;
-  margin: 0;
-  padding: 0;
-  font-size: 0;
-  text-align: left;
-  animation: 50s slidy infinite;
-  overflow: hidden;
-  display: inline-block;
-  border-radius: 10px !important;
+  background: rgba(00, 50, 70, 0.5);
+  color: white;
 }
-.slideshow-image{
-  width: 10%;
-  height: 10%;
-  border-radius: 10px;
-  overflow: hidden;
-  float: left;
-
+.form-control{
+  max-width: 400px;
 }
-/*img{
-  max-height: 400px !important;
-}*/
-
-@keyframes slidy {
-  0% {
-    left: 0%;
-  }
-  10% {
-    left: 0%;
-  }
-  11.1% {
-    left: -100%;
-  }
-  21.1% {
-    left: -100%;
-  }
-  22.2% {
-    left: -200%;
-  }
-  32.2% {
-    left: -200%;
-  }
-  33.3% {
-    left: -300%;
-  }
-  43.3% {
-    left: -300%;
-  }
-  44.4%{
-    left: -400%;
-  }
-  54.4% {
-    left: -400%;
-  }
-  55.5% {
-    left: -500%;
-  }
-  65.5% {
-    left: -500%;
-  }
-  66.6% {
-    left: -600%;
-  }
-  76.6% {
-    left: -600%;
-  }
-  77.7% {
-    left: -700%;
-  }
-  87.7% {
-    left: -700%;
-  }
-  88.8%{
-    left: -800%;
-  }
-  98.8%{
-    left: -800%;
-  }
-  100%{
-    left: -900%;
-  }
+.slider{
+  width: 100%;
+  position: absolute;
+  bottom: 10%;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#prev, #next{
+  width: 30px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+.preview{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.preview .active{
+  width: 100px;
+  border: solid medium white;
+  opacity: 1;
+}
+.slide{
+  width: 70px;
+  margin: 5px;
+  align-self: center;
+  opacity: 0.7;
+  cursor: pointer;
 }
 
-/*@media screen and (max-width: 480px) {
 
-		html, body {
-			min-width: 320px;
-		}
-
-	}*/
-
-/*@media screen and (max-width: 736px){
-  #slideshow{
-    max-width: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
+@media screen and (min-width: 576px) {
+  .navbar-sm{
+    width: 200px;
+    background: none;
+    filter: blur(0);
   }
-}*/
+  .container-sm-transparent{
+    width: 50%;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .slider-sm{
+    width: 50%;
+    position: absolute;
+    bottom: 10%;
+  }
+}
