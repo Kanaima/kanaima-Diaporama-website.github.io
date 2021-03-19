@@ -64,6 +64,7 @@ $(document).ready(function() {
       var $next = $('.preview img:last');
     } else {
       var $next = $current.next();
+      $backgroundImg.css("background-image", "url('" + imageArray[i + 1][0] + "')");
     };
 
     console.log("i avant incrémentation : " + i);
@@ -105,6 +106,7 @@ $(document).ready(function() {
       var $prev = $('.preview img:first');
     } else {
       var $prev = $current.prev();
+      $backgroundImg.css("background-image", "url('" + imageArray[i - 1][0] + "')");
     };
 
     console.log("i avant décrémentation : " + i);
