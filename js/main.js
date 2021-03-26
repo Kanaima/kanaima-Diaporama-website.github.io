@@ -3,123 +3,144 @@ alert(var1)*/
 
 $(document).ready(function() {
 
-  var imageArray = [
-    ["images/001.jpeg", "bluelake"],
-    ["images/002.jpeg", "girlsmile"],
-    ["images/003.jpeg", "mountainview"],
-    ["images/004.jpeg", "cuddlelions"],
-    ["images/005.jpeg", "familydinner"],
-    ["images/006.jpeg", "hiddenbeach"],
-    ["images/007.jpeg", "russianblue"],
-    ["images/008.jpeg", "confettiparty"],
-    ["images/009.jpeg", "dadholdingchildren"],
-    ["images/010.jpeg", "whitestaff"],
-    ["images/011.jpeg", "grandmachildrenbeach"],
-    ["images/012.jpeg", "marriedcouple"],
-    ["images/013.jpeg", "babies"],
-    ["images/014.jpeg", "turtle"],
-    ["images/015.jpeg", "nightsky"],
-    ["images/016.jpeg", "bearcub"],
-    ["images/017.jpeg", "oldmarriedcouplehands"],
-    ["images/018.jpeg", "couplelaughing"],
-    ["images/019.jpeg", "momholdingbaby"],
-    ["images/020.jpeg", "familybeach"],
-    ["images/021.jpeg", "luminescentfish"],
-    ["images/022.jpeg", "specialfamily"],
-    ["images/023.jpeg", "tiger"],
-    ["images/024.jpeg", "bee"],
-    ["images/025.jpeg", "babyeatingcake"],
-    ["images/026.jpeg", "forest"],
-    ["images/027.jpeg", "couple"],
-    ["images/028.jpeg", "kitten"],
-    ["images/029.jpeg", "girlplayingsea"],
-    ["images/030.jpeg", "childrenplaying"],
-    ["images/031.jpeg", "auroraborealis"],
+  const imagesBank = [
+    {url: "images/001.jpeg", alt: "bluecove", tags: ["nature","mer","ocean","plage","vacance","arbres","falaises"]},
+    {url: "images/002.jpeg", alt: "girlsmile", tags: ["personnes","joie","bonheur","sourire","jeune"]},
+    {url: "images/003.jpeg", alt: "mountainview", tags: ["personnes","solitude","panorama","montagnes","neige","soleil","aurore"]},
+    {url: "images/004.jpeg", alt: "cuddlelions", tags: ["animaux","lions","felins","amour","mignon"]},
+    {url: "images/005.jpeg", alt: "familydinner", tags: ["famille","enfants","personnes","nourriture","joie","sourire"]},
+    {url: "images/006.jpeg", alt: "hiddenbeach", tags: ["nature","mer","plage","ocean","sable","arbres"]},
+    {url: "images/007.jpeg", alt: "russianblue", tags: ["animaux","chat","bleu-russe","gris","mignon"]},
+    {url: "images/008.jpeg", alt: "confettiparty", tags: ["fete","joie","musique","personnes","bonheur"]},
+    {url: "images/009.jpeg", alt: "dadholdingchildren", tags: ["famille","enfants","personnes","plage","joie","soleil","crepuscule"]},
+    {url: "images/010.jpeg", alt: "whitestaff", tags: ["animaux","canins","chien","staff","mignon"]},
+    {url: "images/011.jpeg", alt: "grandmachildrenbeach", tags: ["famille","personnes","enfants","mer","plage","joie","sourire","baignade"]},
+    {url: "images/012.jpeg", alt: "marriedcouple", tags: ["couple","personnes","amour","mariés","marriage","pluie","bonheur"]},
+    {url: "images/013.jpeg", alt: "babies", tags: ["bebes","nourrissons","enfants","mignon","personnes"]},
+    {url: "images/014.jpeg", alt: "turtle", tags: ["animaux","reptiles","mer","marin","tortue","ocean"]},
+    {url: "images/015.jpeg", alt: "nightsky", tags: ["nature","ciel","nuit","etoiles","voie lactee","montagnes","neige"]},
+    {url: "images/016.jpeg", alt: "bearcub", tags: ["animaux","ours","oursons","mignon","nature","foret"]},
+    {url: "images/017.jpeg", alt: "oldmarriedcouplehands", tags: ["couple","personnes","amour","marriage","mariés","vieux"]},
+    {url: "images/018.jpeg", alt: "couplelaughing", tags: ["couple","personnes","amour","joie","sourire","mixte","bonheur","jeunes"]},
+    {url: "images/019.jpeg", alt: "momholdingbaby", tags: ["famille","mere","enfants","bebes","sourire","joie"]},
+    {url: "images/020.jpeg", alt: "familybeach", tags: ["famille","personnes","plage","soleil","crepuscule","mer","bonheur","amour"]},
+    {url: "images/021.jpeg", alt: "luminescentfish", tags: ["animaux","poissons","marin","ocean","phosphorescent"]},
+    {url: "images/022.jpeg", alt: "specialfamily", tags: ["famille","personnes","bonheur","joie","sourire","enfants","handicap"]},
+    {url: "images/023.jpeg", alt: "tiger", tags: ["animaux","tigre","felins","mignon"]},
+    {url: "images/024.jpeg", alt: "bee", tags: ["insectes","nature","fleurs","abeille"]},
+    {url: "images/025.jpeg", alt: "babyeatingcake", tags: ["personnes","bebes","nourriture","gateau","drole","mignon"]},
+    {url: "images/026.jpeg", alt: "forest", tags: ["nature","foret","arbres","vegetation"]},
+    {url: "images/027.jpeg", alt: "couple", tags: ["couple","personnes","amour","sourire","joie","jeunes"]},
+    {url: "images/028.jpeg", alt: "kitten", tags: ["animaux","chaton","mignon","felins"]},
+    {url: "images/029.jpeg", alt: "girlplayingsea", tags: ["nature","mer","plage","personnes","enfants","joie","sourire","jeu"]},
+    {url: "images/030.jpeg", alt: "childrenplaying", tags: ["personnes","enfants","joie","sourire","jeu"]},
+    {url: "images/031.jpeg", alt: "auroraborealis", tags: ["nature","ciel","aurore boreale","etoiles","neige","arbres","nuit"]},
   ];
 
-  var i = 0;
 
+  //PRELOADING IMAGES SLIDES
+  for (var i = 0; i < imagesBank.length; i++) {
+    if (i + 1 <= 3) {
+      if (i + 1 == 1) {
+        $('.preview').append("<img id=\""+ i + "\" class=\"slide show active\" src=\"" + imagesBank[i].url + "\" alt=" + imagesBank[i].alt + ">");
+      }else {
+        $('.preview').append("<img id=\""+ i + "\" class=\"slide show\" src=\"" + imagesBank[i].url + "\" alt=" + imagesBank[i].alt + ">");
+      }
+    }else {
+      $('.preview').append("<img id=\""+ i + "\" class=\"slide d-none\" src=\"" + imagesBank[i].url + "\" alt=" + imagesBank[i].alt + ">");
+    }
+  }
+
+
+  //CLICK ON NEXT
   $("#next").click(function() {
-    var $firstChild = $('.preview img:first');
-    var $lastChild = $('.preview img:last');
-    var $current = $('.active');
-    var $backgroundImg = $('#backgroundImg');
+    var $current = $(".active");
 
-    if ($current.attr('src') == $lastChild.attr('src')) {
-      //remove the first child
-      //add a new image in the slider to the right
-      //set the next background-image with the corresponding imageArray datas
-      if (i + 1 <= imageArray.length) {
-        $firstChild.remove();
+    //check if the current has a next slide
+    if ($current.next().html() !== undefined) {
+      //check the position of the current element
+      if ($current.prev().prev().html() !== undefined) {
+        //case if the current element is the third
+        var $first = $current.prev().prev();
 
-        $lastChild.after("<img class=\"slide\" src=\"" + imageArray[i + 1][0] + "\" alt=" + imageArray[i + 1][1] + ">");
+        //hide the first element
+        $first.removeClass("show");
+        $first.addClass("d-none");
 
-        $backgroundImg.css("background-image", "url('" + imageArray[i + 1][0] + "')");
-      } else if (i + 1 > imageArray.length) {
-        i = 0;
-        $lastChild.after("<img class=\"slide\" src=\"" + imageArray[i][0] + "\" alt=" + imageArray[i][1] + ">");
+        //change the "active" element
+        $current.removeClass("active");
+        $current.next().removeClass("d-none");
+        $current.next().addClass("show active");
 
-        $backgroundImg.css("background-image", "url('" + imageArray[i][0] + "')");
+        //set the new background-image
+        var $newBgUrl = $(".active").attr("src");
+        $("#backgroundImg").css("background-image", "url('" + $newBgUrl + "')");
+      }else {
+        //case if the current element is the first or the second
+        //change the "active" element
+        $current.removeClass("active")
+        $current.next().addClass("active");
+
+        //set the new background-image
+        var $newBgUrl = $(".active").attr("src");
+        $("#backgroundImg").css("background-image", "url('" + $newBgUrl + "')");
       }
-      var $next = $('.preview img:last');
-    } else {
-      var $next = $current.next();
-      $backgroundImg.css("background-image", "url('" + imageArray[i + 1][0] + "')");
-    };
-
-    console.log("i avant incrémentation : " + i);
-
-    //change the slider selector
-    $current.removeClass("active");
-    $next.addClass("active");
-
-    i++;
-
-    console.log("i=" + i + "\ncurrent=" + $current.attr('src') + "\nnext=" + $next.attr('src') + "\nfirstChild=" + $firstChild.attr('src') + "\nlastChild=" + $lastChild.attr('src') + "\nimgarray=" + imageArray[i][0] + "\nlength=" + imageArray.length);
-
+    }
   });
 
 
+//CLICK ON PREV
+  $("#prev").click(function() {
+    var $current = $(".active");
 
-  $('#prev').click(function() {
-    var $firstChild = $('.preview img:first');
-    var $lastChild = $('.preview img:last');
-    var $current = $('.active');
-    var $backgroundImg = $('#backgroundImg');
+    //check if the current has a next slide
+    if ($current.prev().html() !== undefined) {
+      //check the position of the current element
+      if ($current.next().next().html() !== undefined) {
+        //case if the current element is the first
+        var $third = $current.next().next();
 
-    if ($current.attr('src') == $firstChild.attr('src')) {
-      //remove the last child
-      //add a new image in the slider on the left and
-      //set the background-image with the corresponding imageArray datas
-      if (i - 1 >= 0) {
-        $lastChild.remove();
+        //hide the third element
+        $third.removeClass("show");
+        $third.addClass("d-none");
 
-        $firstChild.before("<img class=\"slide\" src=\"" + imageArray[i - 1][0] + "\" alt=" + imageArray[i - 1][1] + ">");
+        //change the "active" element
+        $current.removeClass("active");
+        $current.prev().removeClass("d-none");
+        $current.prev().addClass("show active");
 
-        $backgroundImg.css("background-image", "url('" + imageArray[i - 1][0] + "')");
-      } else if (i - 1 < 0) {
-        i = imageArray.length;
-        $firstChild.before("<img class=\"slide\" src=\"" + imageArray[i][0] + "\" alt=" + imageArray[i][1] + ">");
+        //set the new background-image
+        var $newBgUrl = $(".active").attr("src");
+        $("#backgroundImg").css("background-image", "url('" + $newBgUrl + "')");
+      }else {
+        //case if the current element is the second or the third
+        //change the "active" element
+        $current.removeClass("active")
+        $current.prev().addClass("active");
 
-        $backgroundImg.css("background-image", "url('" + imageArray[i][0] + "')");
+        //set the new background-image
+        var $newBgUrl = $(".active").attr("src");
+        $("#backgroundImg").css("background-image", "url('" + $newBgUrl + "')");
       }
-      var $prev = $('.preview img:first');
-    } else {
-      var $prev = $current.prev();
-      $backgroundImg.css("background-image", "url('" + imageArray[i - 1][0] + "')");
-    };
-
-    console.log("i avant décrémentation : " + i);
-
-    //change the slider selector
-    $current.removeClass("active");
-    $prev.addClass("active");
-
-    i--;
-
-    console.log("i=" + i + "\ncurrent=" + $current.attr('src') + "\nprev=" + $prev.attr('src') + "\nfirstChild=" + $firstChild.attr('src') + "\nlastChild=" + $lastChild.attr('src') + "\nimgarray=" + imageArray[i][0] + "\nlength=" + imageArray.length);
+    }
   });
 
 
+  //CLICK ON A SLIDE
+  $(".slide").click(function() {
+    //"active" the selected slide
+    $(".active").removeClass("active");
+    $(this).addClass("active");
 
+    //set the new background-image
+    var $newBgUrl = $(".active").attr("src");
+    $("#backgroundImg").css("background-image", "url('" + $newBgUrl + "')");
+  });
+
+
+  //SEARCH FUNCTION
+  $("#search").keyup(function() {
+    var $filter = $("#search").val();
+
+  });
 });
